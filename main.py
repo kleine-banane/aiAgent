@@ -6,6 +6,7 @@ import sys
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
+from functions.config import *
 
 def main():
     load_dotenv()
@@ -19,6 +20,7 @@ def main():
     response = client.models.generate_content(
         model="gemini-2.0-flash-001",
         contents=messages,
+        config=types.GenerateContentConfig(system_instruction=SYSTEM_PROMPT),
     )
     print(response.text)
     verbose(response)
