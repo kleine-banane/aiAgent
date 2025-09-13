@@ -34,7 +34,7 @@ def run_python_file(working_directory, file_path, args=[]):
 
 schema_run_python_file = types.FunctionDeclaration(
     name="run_python_file",
-    description="Run the specified python file in the working directory.",
+    description="Run the specified python file in the working directory. If no args are provided, run without args.",
     parameters=types.Schema(
         type=types.Type.OBJECT,
         properties={
@@ -44,7 +44,7 @@ schema_run_python_file = types.FunctionDeclaration(
             ),
             "args": types.Schema(
                 type=types.Type.STRING,
-                description="Arguments needed to run the python file. If not included, none are used"
+                description="Optional CLI args. If omitted, none are used."
             )
         },
     ),
